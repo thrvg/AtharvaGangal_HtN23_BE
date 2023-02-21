@@ -1,0 +1,15 @@
+version: "3"
+services:
+  api:
+    container_name: api-new
+    build:
+      context: .
+    volumes:
+      - .:/home/api
+    environment:
+      - LC_ALL=C.UTF-8
+      - LANG=C.UTF-8
+      - FLASK_APP=main.py
+    ports:
+      - 3000:3000
+    command: ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=3000"]
